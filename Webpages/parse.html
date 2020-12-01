@@ -12,7 +12,6 @@
 
         .login {
             position: relative;
-            text-align: center;
             margin: 30px auto;
             padding: 20px 20px 20px;
             width: 310px;
@@ -178,13 +177,20 @@
 </head>
 <body>
 <div class="login">
-    <h1>Anti Cheat System in FPS Games</h1>
+    <h1>Parse CS:GO's Demo File</h1>
 
-
-    <button onclick="location.href = 'parse';" class="float-left submit-button" >Parse</button>
-    <button onclick="location.href = 'predict';" class="float-left submit-button" >Predict</button>
- 
-    
+    <form method="post" action="/parse">
+        <p><input type="text" name="demo" placeholder="Demo File Name"></p>
+        <p><input type="text" name="player" placeholder="Player Name"></p>
+        <p><input type="text" name="csv" placeholder="Output CSV Name"></p>
+        <p class="remember_me">
+            <label>
+                <input type="checkbox" name="hacker" id="hacker" value="isHacker">
+                isHacker?
+            </label>
+        </p>
+        <p class="submit"><input type="submit" name="parse" value="Parse"></p>
+    </form>
 </div>
 
 <div>
