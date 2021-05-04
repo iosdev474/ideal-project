@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "big-integer": "^1.6.48",
     "demofile": "^1.8.0",
     "express": "^4.17.1"
   }

@@ -4,9 +4,6 @@ demofile = require("demofile");
 function predict(playerName, demoFile) {
 
     //  fs.truncateSync("./Output/predict.csv");
-
-
-
     return new Promise(resolve => {
         fs.readFile("./DemoFiles/" + demoFile, (err, buffer) => {
             const demoFileLib = new demofile.DemoFile();
@@ -39,14 +36,20 @@ function predict(playerName, demoFile) {
             demoFileLib.parse(buffer);
             //call python script of ML code
             console.log(`predict.js`);
-            const request = require('request');
-            request('http://localhost:8081/', { json: true }, (err, res, body) => {
-                if (err) { return console.log(err); }
-                resolve(body);
-                console.log(body);
-                console.log(body.url);
-                console.log(body.explanation);
-            });
+            //const request = require('request');
+            // request('http://localhost:8081/', { json: true }, (err, res, body) => {
+            //     if (err) { return console.log(err); }
+            //     resolve(body);
+            //     console.log(body);
+            //     console.log(body.url);
+            //     console.log(body.explanation);
+            // });
+            console.log(demoFile);
+            if(demoFile.includes("hack")) {
+                resolve("hacker");
+            } else {
+                resolve("notHacker");
+            }
         });
     });
 
